@@ -5,25 +5,32 @@ function get_time() {
 }
 
 function get_chared() {
-	echo "$(acpi | awk '{ print $4 }' | grep -Eo '[0-9]+')"
+	battery="$(acpi | awk '{ print $4 }' | grep -Eo '[0-9]+')"
+	status="$(acpi | awk '{ print $3 }' | grep -Eo '[a-zA-Z]+')"
+	echo Battery: $battery% $status
 }
 
 function get_ip() {
-	echo "$(ip a | grep 'inet' | grep 'brd' | awk '{ print $2 }')"
+	lan="$(ip a | grep 'inet' | grep 'brd' | awk '{ print $2 }')"
+	if test "$lan"
+	then
+		echo IPv4: $lan
+	else
+		echo no lan
+	fi
 }
 
 function get_sound() {
-	echo "$(amixer | grep Left: | grep Playback | awk '{ print $5 }' | grep -Eo '[0-9]+')"
+	echo Sound: "$(amixer | grep Left: | grep Playback | awk '{ print $5 }' | grep -Eo '[0-9]+')"%
 }
 
 while true; do
-	status='ip: '
-	status+=`get_ip`
-	status+=" | Sound: "
+	status=`get_ip`
+	status+=" | "
 	status+=`get_sound`
-	status+="% | Battery: "
+	status+=" | "
 	status+=`get_chared`
-	status+="% | "
+	status+=" | "
 	status+=`get_time`
 	xsetroot -name "$status"
 	sleep 1
