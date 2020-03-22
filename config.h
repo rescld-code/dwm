@@ -69,10 +69,31 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
+/* System sound */
+static const char *amixer[]  = { "alacritty", "-e", "alsamixer", NULL };
+static const char *amixer_add[]  = { "amixer", "set", "Master", "1%+", NULL };
+static const char *amixer_sub[]  = { "amixer", "set", "Master", "1%-", NULL };
+static const char *amixer_toggle[]  = { "amixer", "set", "Master", "toggle", NULL };
+
+/* System backlight */
+static const char *backlight_sub[]  = { "xbacklight", "-dec", "1", NULL };
+static const char *backlight_add[]  = { "xbacklight", "-inc", "1", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+
+	/* System sound */
+	{ MODKEY|Ctrl,                  XK_F10,    spawn,          {.v = amixer } },
+	{ MODKEY,                       XK_F11,    spawn,          {.v = amixer_sub } },
+	{ MODKEY,                       XK_F12,    spawn,          {.v = amixer_add } },
+	{ MODKEY,                       XK_F10,    spawn,          {.v = amixer_toggle } },
+
+	/* System backlight */
+	{ MODKEY,                       XK_F5,     spawn,          {.v = backlight_sub} }
+	{ MODKEY,                       XK_F6,     spawn,          {.v = backlight_add} }
+
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
