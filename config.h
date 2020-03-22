@@ -85,14 +85,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 
 	/* System sound */
-	{ MODKEY|Ctrl,                  XK_F10,    spawn,          {.v = amixer } },
+	{ MODKEY|ControlMask,           XK_F10,    spawn,          {.v = amixer } },
 	{ MODKEY,                       XK_F11,    spawn,          {.v = amixer_sub } },
 	{ MODKEY,                       XK_F12,    spawn,          {.v = amixer_add } },
 	{ MODKEY,                       XK_F10,    spawn,          {.v = amixer_toggle } },
 
 	/* System backlight */
-	{ MODKEY,                       XK_F5,     spawn,          {.v = backlight_sub} }
-	{ MODKEY,                       XK_F6,     spawn,          {.v = backlight_add} }
+	{ MODKEY,                       XK_F5,     spawn,          {.v = backlight_sub} },
+	{ MODKEY,                       XK_F6,     spawn,          {.v = backlight_add} },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
