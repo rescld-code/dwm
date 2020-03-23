@@ -21,7 +21,9 @@ function get_ip() {
 }
 
 function get_sound() {
-	echo Sound: "$(amixer | grep Left: | grep Playback | awk '{ print $5 }' | grep -Eo '[0-9]+')"%
+	sound="$(amixer | grep Left: | grep Playback | awk '{ print $5 }' | grep -Eo '[0-9]+')"
+	status="$(amixer | grep Left: | grep Playback | awk '{ print $6 }' | grep -Eo '[a-zA-Z]+')"
+	echo Sound: $sound% $status
 }
 
 while true; do
