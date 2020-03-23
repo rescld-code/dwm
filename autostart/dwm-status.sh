@@ -7,7 +7,12 @@ function get_time() {
 function get_chared() {
 	battery="$(acpi | awk '{ print $4 }' | grep -Eo '[0-9]+')"
 	status="$(acpi | awk '{ print $3 }' | grep -Eo '[a-zA-Z]+')"
-	echo Battery: $battery% $status
+	if test $status == 'Not'
+	then
+		echo Battery: 100%
+	else
+		echo Battery: $battery% $status
+	fi
 }
 
 function get_ip() {

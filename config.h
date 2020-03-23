@@ -107,12 +107,15 @@ static Key keys[] = {
 	/* Windows resize */
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.01} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.01} },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
 
 	/* Change windows mod */
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_b,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+
+	/* Fullscreen */
+	{ MODKEY,                       XK_f,      fullscreen,      {0} },
 
 	/* Master windows count */
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
