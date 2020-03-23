@@ -69,6 +69,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 /* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
 static const char *termcmd[]  = { "st", NULL };
 static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 /* System sound */
 static const char *amixer[]  = { "alacritty", "-e", "alsamixer", NULL };
@@ -87,6 +89,7 @@ static Key keys[] = {
 	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = i3lock } },
+	{ MODKEY,                       XK_o,      togglescratch,  {.v = scratchpadcmd } },
 
 	/* System sound */
 	{ MODKEY|ControlMask,           XK_F10,    spawn,          {.v = amixer } },
