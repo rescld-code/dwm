@@ -79,10 +79,13 @@ static const char *amixer_toggle[]  = { "amixer", "set", "Master", "toggle", NUL
 static const char *backlight_sub[]  = { "xbacklight", "-dec", "1", NULL };
 static const char *backlight_add[]  = { "xbacklight", "-inc", "1", NULL };
 
+static const char *i3lock[] = { "i3lock", "-i", "/home/cy/Images/77.png", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = i3lock } },
 
 	/* System sound */
 	{ MODKEY|ControlMask,           XK_F10,    spawn,          {.v = amixer } },
@@ -101,8 +104,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
 	
 	/* Windows resize */
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.01} },
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.01} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 
 	/* Change windows mod */
