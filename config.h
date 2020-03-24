@@ -73,7 +73,7 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 /* System sound */
-static const char *amixer[]  = { "alacritty", "-e", "alsamixer", NULL };
+static const char *amixer[]  = { "st", "-e", "alsamixer", NULL };
 static const char *amixer_add[]  = { "amixer", "set", "Master", "1%+", NULL };
 static const char *amixer_sub[]  = { "amixer", "set", "Master", "1%-", NULL };
 static const char *amixer_toggle[]  = { "amixer", "set", "Master", "toggle", NULL };
