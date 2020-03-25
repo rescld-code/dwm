@@ -120,9 +120,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 
-	/* Fullscreen */
-	{ MODKEY,                       XK_f,      fullscreen,      {0} },
-
 	/* Master windows count */
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_o,      incnmaster,     {.i = -1 } },
@@ -130,6 +127,15 @@ static Key keys[] = {
 	/* Combo */
 	{ MODKEY,                       XK_0,      combotag,       {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      comboview,      {.ui = ~0 } },
+
+	/* Windows hide/show */
+	{MODKEY,						XK_v, 	   hidewin, 	     {0}},
+    {MODKEY|ShiftMask, 			    XK_v, 	   restorewin, 	     {0}},
+    /* {MODKEY, 						XK_p, 	   hideotherwins,    {0}}, */
+    /* {MODKEY|ShiftMask, 				XK_p, 	   restoreotherwins, {0}}, */
+
+	/* Fullscreen */
+	{ MODKEY,                       XK_f,      fullscreen,       {0} },
 
 	{ MODKEY,                       XK_u,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
