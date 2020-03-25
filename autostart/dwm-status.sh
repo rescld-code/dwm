@@ -32,13 +32,7 @@ function get_sound() {
 }
 
 while true; do
-	status=`get_ip`
-	status+=" | "
-	status+=`get_sound`
-	status+=" | "
-	status+=`get_chared`
-	status+=" | "
-	status+=`get_time`
+	status=`get_ip`" | "`get_sound`" | "`get_chared`" | "`get_time`
 	xsetroot -name "$status"
 	sleep 1
 done &

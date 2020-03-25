@@ -89,15 +89,17 @@ static Key keys[] = {
 	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = i3lock } },
+
+	/* Toggle terminal in screen center */
 	{ MODKEY,                       XK_o,      togglescratch,  {.v = scratchpadcmd } },
 
-	/* System sound */
+	/* Change system sound require install alsa-utils*/
 	{ MODKEY|ControlMask,           XK_F10,    spawn,          {.v = amixer } },
 	{ MODKEY,                       XK_F11,    spawn,          {.v = amixer_sub } },
 	{ MODKEY,                       XK_F12,    spawn,          {.v = amixer_add } },
 	{ MODKEY,                       XK_F10,    spawn,          {.v = amixer_toggle } },
 
-	/* System backlight */
+	/* Change system backlight require install acpiliht*/
 	{ MODKEY,                       XK_F5,     spawn,          {.v = backlight_sub} },
 	{ MODKEY,                       XK_F6,     spawn,          {.v = backlight_add} },
 
