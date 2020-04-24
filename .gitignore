@@ -1,4 +1,5 @@
 dwm
 *.o
+.vim
 *.rej
 *.orig

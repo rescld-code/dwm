@@ -11,5 +11,5 @@ feh --bg-scale /home/cy/Images/54.jpeg &
 # TIM gnome-settings-daemon
 /usr/lib/gsd-xsettings &
 
-# dwm-status
-/home/cy/.dwm/autostart/dwm-status.sh &
+# dwm-status-bar
+python3 /home/cy/.dwm/autostart/dwm-status.py &

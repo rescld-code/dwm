@@ -83,10 +83,13 @@ static const char *amixer_toggle[]  = { "amixer", "set", "Master", "toggle", NUL
 static const char *backlight_sub[]  = { "xbacklight", "-dec", "1", NULL };
 static const char *backlight_add[]  = { "xbacklight", "-inc", "1", NULL };
 
-static const char *i3lock[] = { "i3lock", "-i", "/home/cy/Images/77.png", NULL };
+static const char *i3lock[] = { "i3lock", "-i", "/home/cy/Images/82.png", NULL };
+
+static const char *emacs[] = { "emacs", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ Mod1Mask,                     XK_Return, spawn,          {.v = emacs } },
 	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = i3lock } },
@@ -125,14 +128,12 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_o,      incnmaster,     {.i = -1 } },
 
 	/* Combo */
-	{ MODKEY,                       XK_0,      combotag,       {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      comboview,      {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,      combotag,       {.ui = ~0 } },
+	{ MODKEY,                       XK_0,      comboview,      {.ui = ~0 } },
 
 	/* Windows hide/show */
 	{MODKEY,						XK_v, 	   hidewin, 	     {0}},
     {MODKEY|ShiftMask, 			    XK_v, 	   restorewin, 	     {0}},
-    /* {MODKEY, 						XK_p, 	   hideotherwins,    {0}}, */
-    /* {MODKEY|ShiftMask, 				XK_p, 	   restoreotherwins, {0}}, */
 
 	/* Fullscreen */
 	{ MODKEY,                       XK_f,      fullscreen,       {0} },
