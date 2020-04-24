@@ -3,7 +3,6 @@
 
 import re
 import os
-import time
 import threading
 
 ip = "" # IPv4地址
