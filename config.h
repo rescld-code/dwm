@@ -29,7 +29,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "乾", "坎", "艮", "震", "巽", "离", "坤", "兑", "极" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -83,7 +83,7 @@ static const char *amixer_toggle[]  = { "amixer", "set", "Master", "toggle", NUL
 static const char *backlight_sub[]  = { "xbacklight", "-dec", "1", NULL };
 static const char *backlight_add[]  = { "xbacklight", "-inc", "1", NULL };
 
-static const char *i3lock[] = { "i3lock", "-i", "/home/cy/Images/82.png", NULL };
+static const char *i3lock[] = { "i3lock", "-i", "/home/cy/Images/ruki/不完美的小孩/3.png", NULL };
 
 static const char *emacs[] = { "emacs", NULL };
 
