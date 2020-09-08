@@ -83,7 +83,7 @@ static const char *amixer_toggle[]  = { "amixer", "set", "Master", "toggle", NUL
 static const char *backlight_sub[]  = { "xbacklight", "-dec", "1", NULL };
 static const char *backlight_add[]  = { "xbacklight", "-inc", "1", NULL };
 
-static const char *i3lock[] = { "i3lock", "-i", "/home/cy/Images/ruki/不完美的小孩/3.png", NULL };
+static const char *i3lock[] = { "i3lock", "-i", "/home/cy/Pictures/ruki/不完美的小孩/3.png", NULL };
 
 static const char *emacs[] = { "emacs", NULL };
 
@@ -107,7 +107,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F5,     spawn,          {.v = backlight_sub} },
 	{ MODKEY,                       XK_F6,     spawn,          {.v = backlight_add} },
 
-	/* Cursor remove */
+	/* Cursor move */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },

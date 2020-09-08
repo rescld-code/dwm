@@ -32,13 +32,15 @@ class Bar(threading.Thread):
         # 学考倒计时
         global countDown
         s = datetime.date.today()
-        t = datetime.date(2020, 6, 20)
+        t = datetime.date(2020, 9, 19)
         countDown = str(t.__sub__(s)).split(' ')[0]
 
     def getTime(self):
         # 获取时间
         global date
-        date = time.strftime("%Y-%m-%d %a %H:%M:%S", time.localtime())
+        date = time.strftime("%Y-%m-%d %A %H:%M", time.localtime())
+        if date.split(' ')[2] == "00:00:00":
+            self.CountDown()
 
     def notice(self):
         # 发出提示
@@ -94,24 +96,39 @@ class Bar(threading.Thread):
     def getBackLight(self):
         # 获取笔记本屏幕背光
         global backLight
-        backLight = os.popen("xbacklight -get").read().split('\n')[0]
+        with open("/sys/class/backlight/intel_backlight/brightness", "r") as f:
+            backLight = int(int(f.read())/75)
 
     def run(self):
-        self.getIP()
-        self.notice()
-        self.getTime()
-        self.getSound()
-        self.CountDown()
-        self.getBattery()
-        self.getBackLight()
+        while True:
+            self.getIP()
+            self.notice()
+            self.CountDown()
+            self.getBattery()
+            time.sleep(10)
 
+class BarSon(Bar):
+    def __init__(self):
+        Bar.__init__(self)
+
+    def run(self):
+        while True:
+            self.getTime()
+            self.getSound()
+            self.getBackLight()
+            time.sleep(10)
+
+data = Bar()
+data2 = BarSon()
+
+data.start()
+data2.start()
+
+oldBar = ""
 
 while True:
-    # 线程获取数据
-    data = Bar()
-    data.start()
-
     # 状态条
+    time.sleep(5)
     bar = "学考倒计时: {} days".format(countDown)
     bar += " | IP: {}".format(ip)
     bar += " | Sound: {} {} {}".format(soundLeft, soundRight, soundStatus)
@@ -119,4 +136,8 @@ while True:
     bar += " | Battery: {} {}".format(battery, batteryStatus)
     bar += " | {}".format(date)
 
-    os.system("xsetroot -name \"" + bar + "\"")
+    if oldBar != bar:
+        oldBar = bar
+        os.system("xsetroot -name \"" + bar + "\"")
+
+    time.sleep(15)

@@ -4,7 +4,7 @@
 compton &
 # variety &
 fcitx &
-feh --bg-scale /home/cy/Images/54.jpeg &
+feh --bg-scale /home/cy/Pictures/yousa/3D/6.jpg &
 # oneko &
 # screenkey &
 
